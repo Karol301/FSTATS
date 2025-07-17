@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
+
+const apiUrl = 'http://localhost:5000'; 
 
 function App() {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/hello')
-      .then(response => response.json())
-      .then(data => setMessage(data.message))
-  }, [])
-
   return (
-    <div>
-      <h1>React + Flask Starter</h1>
-      <p>{message}</p>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<LoginForm apiUrl={apiUrl} />} />
+        <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
