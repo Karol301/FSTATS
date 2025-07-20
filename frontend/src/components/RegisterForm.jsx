@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function LoginForm({ apiUrl }) {
+function RegisterForm({ apiUrl }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -14,7 +14,7 @@ function LoginForm({ apiUrl }) {
     setMessageType('');
 
     try {
-      const response = await fetch(`${apiUrl}/api/login`, {
+      const response = await fetch(`${apiUrl}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -24,9 +24,9 @@ function LoginForm({ apiUrl }) {
       if (response.ok) {
         setMessage(data.message);
         setMessageType('success');
-        setTimeout(() => navigate('/'), 1500);
+        setTimeout(() => navigate('/login'), 1500);
       } else {
-        setMessage(data.message || 'Błąd logowania');
+        setMessage(data.message || 'Błąd rejestracji');
         setMessageType('error');
       }
     } catch (error) {
@@ -36,8 +36,8 @@ function LoginForm({ apiUrl }) {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Logowanie</h2>
+    <div className="auth-container register">
+      <h2>Rejestracja</h2>
       {message && <div className={`message ${messageType}`}>{message}</div>}
       <form onSubmit={handleSubmit}>
         <label>
@@ -48,13 +48,13 @@ function LoginForm({ apiUrl }) {
           Hasło:
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
         </label>
-<button type="submit" className="btn-primary login">Zaloguj</button>
+        <button type="submit" className="btn-primary login">Zarejestruj</button>
       </form>
       <p>
-        Nie masz konta? <Link to="/register">Zarejestruj się</Link>
+        Masz już konto? <Link to="/login">Zaloguj się</Link>
       </p>
     </div>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

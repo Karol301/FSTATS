@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function RegisterForm({ apiUrl }) {
+function LoginForm({ apiUrl }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -14,7 +14,7 @@ function RegisterForm({ apiUrl }) {
     setMessageType('');
 
     try {
-      const response = await fetch(`${apiUrl}/api/register`, {
+      const response = await fetch(`${apiUrl}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -24,9 +24,9 @@ function RegisterForm({ apiUrl }) {
       if (response.ok) {
         setMessage(data.message);
         setMessageType('success');
-        setTimeout(() => navigate('/login'), 1500);
+        setTimeout(() => navigate('/home'), 1500);
       } else {
-        setMessage(data.message || 'Błąd rejestracji');
+        setMessage(data.message || 'Błąd logowania');
         setMessageType('error');
       }
     } catch (error) {
@@ -37,7 +37,7 @@ function RegisterForm({ apiUrl }) {
 
   return (
     <div className="auth-container">
-      <h2>Rejestracja</h2>
+      <h2>Logowanie</h2>
       {message && <div className={`message ${messageType}`}>{message}</div>}
       <form onSubmit={handleSubmit}>
         <label>
@@ -48,13 +48,13 @@ function RegisterForm({ apiUrl }) {
           Hasło:
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
         </label>
-        <button type="submit" className="btn-primary login">Zarejestruj</button>
+        <button type="submit" className="btn-primary login">Zaloguj</button>
       </form>
       <p>
-        Masz już konto? <Link to="/login">Zaloguj się</Link>
+        Nie masz konta? <Link to="/register">Zarejestruj się</Link>
       </p>
     </div>
   );
 }
 
-export default RegisterForm;
+export default LoginForm;
