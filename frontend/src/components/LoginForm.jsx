@@ -36,17 +36,27 @@ function LoginForm({ apiUrl }) {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container register">
       <h2>Logowanie</h2>
       {message && <div className={`message ${messageType}`}>{message}</div>}
       <form onSubmit={handleSubmit}>
         <label>
           Login:
-          <input type="text" value={username} onChange={e => setUsername(e.target.value)} required />
+          <input
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
         </label>
         <label>
           Hasło:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
         </label>
         <button type="submit" className="btn-primary login">Zaloguj</button>
       </form>
