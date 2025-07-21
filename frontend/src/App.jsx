@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginForm apiUrl={apiUrl} />} />
         <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home apiUrl={apiUrl} />} />
       </Routes>
     </Router>
   );
