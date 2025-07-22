@@ -3,18 +3,23 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Home from './components/Home';
+import SearchResultsPage from './components/SearchResultPage';
+import SearchBar from './components/SearchBar';
 
-const apiUrl = 'http://localhost:5000'; 
+const apiUrl = 'http://localhost:5000';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<LoginForm apiUrl={apiUrl} />} />
-        <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
-        <Route path="/home" element={<Home apiUrl={apiUrl} />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginForm apiUrl={apiUrl} />} />
+          <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
+          <Route path="/home" element={<Home apiUrl={apiUrl} />} />
+          <Route path="/search-results" element={<SearchResultsPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

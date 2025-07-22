@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/index.css';
 import TeamLogo from './TeamLogo';
-import SearchBar from './SearchBar'; // <-- tutaj
+import SearchBar from './SearchBar'; 
 
 const apiUrl = 'http://localhost:5000';
 
