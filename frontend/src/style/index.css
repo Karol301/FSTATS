@@ -119,3 +119,68 @@ form {
   color: #ccc;
   text-align: center;
 }
+
+.home-container {
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Minecraft', monospace, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background-color: #2e2a4a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+.home-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background-color: #2e2a4a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.team-card img {
+  max-width: 100px;
+  height: auto;
+}
+
+.team-name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
