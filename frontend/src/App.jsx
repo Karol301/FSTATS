@@ -17,7 +17,7 @@ function App() {
           <Route path="/login" element={<LoginForm apiUrl={apiUrl} />} />
           <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
           <Route path="/home" element={<Home apiUrl={apiUrl} />} />
-          <Route path="/search-results" element={<SearchResultsPage />} />
+          <Route path="/search-results" element={<SearchResultsPage apiUrl={apiUrl} />} />
           <Route path="/teams/:teamName" element={<TeamDetailsPage />} />
         </Routes>
       </div>

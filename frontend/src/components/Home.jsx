@@ -23,7 +23,6 @@ function Home({ apiUrl }) {
   ];
 
   const handleTeamClick = (teamName) => {
-    // Przekieruj do np. /teams/Real%20Madrid
     navigate(`/teams/${encodeURIComponent(teamName)}`);
   };
 

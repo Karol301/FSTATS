@@ -6,7 +6,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function SearchResultsPage() {
+function SearchResultsPage({ apiUrl }) {
   const query = useQuery();
   const teamName = query.get('team');
 
@@ -17,7 +17,7 @@ function SearchResultsPage() {
   return (
     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
       <h2>{teamName}</h2>
-      <TeamLogo teamName={teamName} />
+      <TeamLogo teamName={teamName} apiUrl={apiUrl} />
     </div>
   );
 }
