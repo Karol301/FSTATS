@@ -4,7 +4,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Home from './components/Home';
 import SearchResultsPage from './components/SearchResultPage';
-import SearchBar from './components/SearchBar';
+import TeamDetailsPage from './components/TeamDetailsPage';
 
 const apiUrl = 'http://localhost:5000';
 
@@ -18,6 +18,7 @@ function App() {
           <Route path="/register" element={<RegisterForm apiUrl={apiUrl} />} />
           <Route path="/home" element={<Home apiUrl={apiUrl} />} />
           <Route path="/search-results" element={<SearchResultsPage />} />
+          <Route path="/teams/:teamName" element={<TeamDetailsPage />} />
         </Routes>
       </div>
     </Router>

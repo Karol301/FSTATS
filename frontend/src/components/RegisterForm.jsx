@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import '../style/Auth.css';
 
 function RegisterForm({ apiUrl }) {
   const [username, setUsername] = useState('');

@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #6a4baf;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  background-color: #2e2a4a;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 900;
+  font-size: 3.2rem;
+  color: #dcdcdc;
+  text-shadow: 1px 1px 2px #000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.auth-container label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.auth-container label span {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #7a5fc0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #5a3f99;
+  color: #eee;
+  font-weight: 700;
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: #9b7de8;
+  outline: none;
+  background-color: #6a4baf;
+}
+
+.btn-primary.login {
+  width: 40%;
+  padding: 14px;
+  font-size: 18px;
+  margin-top: 30px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 900;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary.login:hover {
+  background-color: #218838;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.auth-container p {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #ccc;
+  text-align: center;
+}

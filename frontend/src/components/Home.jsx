@@ -1,11 +1,14 @@
 import React from 'react';
 import '../style/index.css';
+import '../style/Home.css';
+import '../style/TeamCard.css'; 
 import TeamLogo from './TeamLogo';
-import SearchBar from './SearchBar'; 
+import SearchBar from './SearchBar';
+import { useNavigate } from 'react-router-dom';
 
-const apiUrl = 'http://localhost:5000';
+function Home({ apiUrl }) {
+  const navigate = useNavigate();
 
-function Home() {
   const topTeams = [
     'Real Madrid',
     'Manchester City',
@@ -19,6 +22,11 @@ function Home() {
     'Chelsea'
   ];
 
+  const handleTeamClick = (teamName) => {
+    // Przekieruj do np. /teams/Real%20Madrid
+    navigate(`/teams/${encodeURIComponent(teamName)}`);
+  };
+
   return (
     <div className="home-container">
       <SearchBar />
@@ -27,7 +35,11 @@ function Home() {
         {topTeams.map((team) => (
           <div key={team} className="team-card">
             <h3 className="team-name">{team}</h3>
-            <TeamLogo teamName={team} apiUrl={apiUrl} />
+            <TeamLogo
+              teamName={team}
+              apiUrl={apiUrl}
+              onClick={() => handleTeamClick(team)}
+            />
           </div>
         ))}
       </div>
