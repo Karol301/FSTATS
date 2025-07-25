@@ -9,9 +9,9 @@ function TeamLogo({ teamName, apiUrl, onClick }) {
     if (!teamName) return;
 
     setLoading(true);
-    fetch(`${apiUrl}/api/teams?name=${encodeURIComponent(teamName)}`)
-      .then((res) => res.json())
-      .then((data) => {
+    fetch(`${apiUrl}/team-logo?team_name=${encodeURIComponent(teamName)}`)
+      .then(res => res.json())
+      .then(data => {
         if (data.logo) {
           setLogoUrl(data.logo);
           setError(null);
@@ -36,12 +36,7 @@ function TeamLogo({ teamName, apiUrl, onClick }) {
         <button
           onClick={onClick}
           className="logo-button"
-          style={{
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer'
-          }}
+          style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
         >
           <img src={logoUrl} alt={`${teamName} logo`} className="team-logo" />
         </button>
