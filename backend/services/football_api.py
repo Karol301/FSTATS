@@ -5,10 +5,8 @@ API_KEY = os.getenv("API_FOOTBALL_KEY")
 BASE_URL = "https://v3.football.api-sports.io"
 
 headers = {
-    "x-rapidapi-key": API_KEY,
-    "x-rapidapi-host": "v3.football.api-sports.io"
+    "x-apisports-key": API_KEY
 }
-
 
 def get_team_id_by_name(team_name):
     url = f"{BASE_URL}/teams"
@@ -23,17 +21,21 @@ def get_team_id_by_name(team_name):
 
 
 def get_league_id_for_team(team_id, season):
-    url = f"{BASE_URL}/fixtures"
-    params = {
-        "team": team_id,
-        "season": season
-    }
+    url = f"{BASE_URL}/leagues"
+    params = {"team": team_id, "season": season}
     response = requests.get(url, headers=headers, params=params)
 
     if response.status_code == 200:
-        data = response.json()
-        if data["response"]:
-            return data["response"][0]["league"]["id"]
+        data = response.json().get("response", [])
+        if not data:
+            return None
+
+        for league in data:
+            if league["league"]["type"] == "League":
+                return league["league"]["id"]
+
+        return data[0]["league"]["id"]
+
     return None
 
 

@@ -10,25 +10,25 @@ body {
 }
 
 .auth-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 80px 60px;
+  width: 100%;
+  max-width: 400px;  
+  margin: 20px;     
+  padding: 60px 40px;
   background-color: #2e2a4a;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 100%;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 40px;
   font-weight: 900;
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   color: #dcdcdc;
   text-shadow: 1px 1px 2px #000;
 }
@@ -42,23 +42,22 @@ form {
 
 .auth-container label {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 80%;
-  margin-bottom: 25px;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
   font-weight: 700;
   color: #ccc;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .auth-container label span {
-  margin-right: 10px;
-  width: 100px;
+  margin-bottom: 8px;
+  width: 100%;
 }
 
 .auth-container input[type="text"],
 .auth-container input[type="password"] {
-  width: 60%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #7a5fc0;
   border-radius: 8px;
@@ -67,6 +66,7 @@ form {
   color: #eee;
   font-weight: 700;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .auth-container input:focus {
@@ -76,7 +76,8 @@ form {
 }
 
 .btn-primary.login {
-  width: 40%;
+  width: 100%;
+  max-width: 200px;
   padding: 14px;
   font-size: 18px;
   margin-top: 30px;
@@ -95,11 +96,14 @@ form {
 }
 
 .message {
+  width: 100%;
+  max-width: 300px;
   margin-bottom: 15px;
   padding: 10px;
   border-radius: 4px;
   font-weight: 700;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .message.success {
